@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Location Finder</title>
+  <!-- Favicon -->
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
   
 
   <script>
@@ -24,6 +35,15 @@
         return location.city.match(regex) || location.state.match(regex)
       });
     }
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    function displayMatches() {
+      console.log(this.value)
+    }
+
+    searchInput.addEventListener('keyup', displayMatches);
   </script>
 </body>
 </html>
